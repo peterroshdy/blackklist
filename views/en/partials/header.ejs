@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Blackklist</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="stylesheets/en/style.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">    
+    <link rel="stylesheet" href="stylesheets/general.css">
+    <link rel="stylesheet" href="stylesheets/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/496eae3b89.js"></script>
+</head>
+
+<body>
+    
+    <div class="body_wrapper">
+        <nav style="background-color: black;padding: 22px" class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="/">Blackklist</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Language
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/lang/ar">العربية</a>
+                    <a class="dropdown-item" href="/lang/en">English</a>
+                    
+                  </div>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/dashboard">Search lost phones</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/add_new_phone">Add lost phone</a>
+                </li>
+              </ul>
+
+                <% if (user) {%>
+                  <a style="font-weight: 600;font-size: 19px;margin-right: 10px;" class="text-warning" href="/profile"><%= user.name%></a>
+                <% }else{%>
+                  <a class="btn btn-outline-warning my-2 my-sm-0" href="/auth">Login / Create account</a>
+                <% }%>
+                
+              
+            </div>
+          </nav>

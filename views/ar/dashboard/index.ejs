@@ -1,0 +1,60 @@
+<% include ../partials/header %>
+
+<section class="new_startup_banner_area">
+  <div class="container">
+      <div class="row text-center">
+          <div class="col-lg-12">
+              
+              <form action="/search" method="POST">
+                <button class="search_box_submit_btn" type="submit"><i class="fas fa-search"></i></button>
+                <input class="search_box" placeholder="IMEI أبحث بأستخدام ماركة الهاتف أو موديل الهاتف أو رقم" type="text" name="query" autofocus="off" autocomplete="off" required>
+                
+              </form>
+              
+              
+              <table class="table table-borderless" style="background-color: #000;direction: rtl;">
+                <thead>
+                    <tr>
+                    <th scope="col">أسم المالك</th>
+                    <th scope="col">ماركة الهاتف</th>
+                    <th scope="col">رقم موديل الهاتف</th>
+                    <th scope="col">رقم IMEI</th>
+                    <th scope="col">تاريخ الأضافة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% if (phones){ %>
+                        <% phones.forEach(phone => { %>
+                        <tr>
+                            
+                            <td><%= phone.owner_name %></td>
+                            <td><%= phone.brand %></td>
+                            <td><%= phone.model_number %></td>
+                            <%if (phone.imei_number) { %>
+                                <td><%= phone.imei_number %></td>
+                            <%}else{%>
+                                <td>غير معروف</td>
+                            <% } %>
+                            <td><%= moment(phone.created_at).format( 'LLL') %></td>
+                        </tr>
+                        <% }); %>
+                <% }else{ %>
+                    <p>لا يوجد أي هواتف</p>
+                <% } %>
+                </tbody>
+                </table>
+                <form class="text-right" action="/results_filter" method="GET">
+                <select class="results_filter">
+                    <option>المضاف حديثًا منذ يوم واحد</option>
+                    <option>المضاف منذ أسبوع واحد</option>
+                    <option>المضاف منذ شهر واحد</option>
+                    <option>المضاف منذ 6 أشهر</option>
+                </select>
+                <span> : فلترة النتائج </span>
+              </form>
+          </div>
+      </div>
+  </div>
+
+</section>        
+<% include ../partials/footer %>

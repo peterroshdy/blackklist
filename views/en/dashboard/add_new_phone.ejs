@@ -1,0 +1,79 @@
+<% include ../partials/header %>
+
+
+<section class="new_startup_banner_area">
+    <div class="container">
+    <% include ../partials/messages %>
+        <div class="row text-right">
+            <div class="col-lg-12">
+                <h5>أضف هاتف مفقود أو مسروق</h5>
+                <h6>أضف جميع المعلومات الممكنة عن الهاتف حتي يسهل العثور علية</h6>
+                <br><br>
+                <form class="primary_form" action="/add_new_phone" method="POST">
+                    <input required value="<%= user.id %>" name="user_id" hidden />
+                    <label for="">أسم المالك *</label>
+                    <input type="name" value="<%= typeof owner_name != 'undefined' ? owner_name : ''%>" name="owner_name" placeholder="أسم مالك الهاتف المفقود" required>
+                    <br><br>
+                    <label for="">رقم هاتف للتواصل*</label>
+                    <input type="text" value="<%= typeof contact_number != 'undefined' ? contact_number : ''%>" name="contact_number" placeholder="أضف رقم هاتف للتواصل في حالة العثور علية" required>
+                    <br><br>
+                    <label for="">نوع الهاتف*</label>
+                    <select name="brand" required>
+                        <option value="" selected="selected" disabled>أختر نوع الهاتف المفقود</option>
+                        <option value="SAMSUNG">SAMSUNG</option>
+                        <option value="APPLE">APPLE</option>
+                        <option value="HUAWEI">HUAWEI</option>
+                        <option value="NOKIA">NOKIA</option>
+                        <option value="SONY">SONY</option>
+                        <option value="LG">LG</option>
+                        <option value="HTC">HTC</option>
+                        <option value="MOTOROLA">MOTOROLA</option>
+                        <option value="LENOVO">LENOVO</option>
+                        <option value="XIAOMI">XIAOMI</option>
+                        <option value="GOOGLE">GOOGLE</option>
+                        <option value="HONOR">HONOR</option>
+                        <option value="OPPO">OPPO</option>
+                        <option value="REALME">REALME</option>
+                        <option value="ONEPLUS">ONEPLUS</option>
+                        <option value="VIVO">VIVO</option>
+                        <option value="MEIZU">MEIZU</option>
+                        <option value="BLACKBERRY">BLACKBERRY</option>
+                        <option value="ASUS">ASUS</option>
+                        <option value="ALCATEL">ALCATEL</option>
+                        <option value="ZTE">ZTE</option>
+                        <option value="MICROSOFT">MICROSOFT</option>
+                        <option value="VODAFONE">VODAFONE</option>
+                        <option value="ENERGIZER">ENERGIZER</option>
+                        <option value="CAT">CAT</option>
+                        <option value="SHARP">SHARP</option>
+                        <option value="MICROMAX">MICROMAX</option>
+                        <option value="BLU">BLU</option>
+                        <option value="ACER">ACER</option>
+                        <option value="INFINIX">INFINIX</option>
+                        <option value="TECNO">TECNO</option>
+                        <option value="WIKO">WIKO</option>
+                        <option value="PANASONIC">PANASONIC</option>
+                        <option value="YU">YU</option>
+                        <option value="VERYKOOL">VERYKOOL</option>
+                        <option value="PLUM">PLUM</option>
+                        <option value="OTHER">OTHER</option>
+                    </select>
+                    <br><br>
+                    <label for="">رقم موديل الهاتف المفقود*</label>
+                    <input type="text" value="<%= typeof model_number != 'undefined' ? model_number : ''%>" name="model_number" placeholder="أضف رقم الموديل الخاص بالهاتف" required>
+                    <br><br>
+                    <label for="">IMEI رقم</label>
+                    <input type="text" value="<%= typeof imei_number != 'undefined' ? imei_number : ''%>" name="imei_number" placeholder=" أضف رقم IMEI ">
+                    <br><br>
+                    <label for="">ملاحظات أخري ؟</label>
+                    <textarea placeholder="هل تود أضافة ملاحظات أخري عن الهاتف المفقود؟ علامات مميزة؟ متي فقدتة أو كيف ؟" name="notes"><%= typeof notes != 'undefined' ? notes : ''%></textarea>
+                    <br><br>
+                    <button type="submit" class="btn btn-warning">أضف هاتف مفقود</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+        
+<% include ../partials/footer %>

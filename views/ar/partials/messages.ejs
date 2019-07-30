@@ -1,0 +1,37 @@
+<% if (typeof bad_msgs != 'undefined') { %>
+    <% bad_msgs.forEach(error_msg => { %>
+        <div class="alert alert-danger alert-dismissible fade show text-right" role="alert">
+            <%= error_msg.msg%>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <% }); %>
+<% } %>
+
+<% if (success_msg != '') { %>
+    <div class="alert alert-success alert-dismissible fade show text-right" role="alert">
+        <%= success_msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<% if (error_msg != '') { %>
+    <div class="alert alert-danger alert-dismissible fade show text-right" role="alert">
+        <%= error_msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<% if (error != '') { %>
+    <div class="alert alert-danger alert-dismissible fade show text-right" role="alert">
+        <%= error %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
