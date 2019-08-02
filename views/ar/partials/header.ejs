@@ -8,10 +8,10 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <title>Blackk List - بلاك ليست</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="stylesheets/ar/style.css">  
-    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">      
-    <link rel="stylesheet" href="stylesheets/general.css">
-    <link rel="stylesheet" href="stylesheets/responsive.css">
+    <link rel="stylesheet" href="/stylesheets/ar/style.css">  
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">      
+    <link rel="stylesheet" href="/stylesheets/general.css">
+    <link rel="stylesheet" href="/stylesheets/responsive.css">
     <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/496eae3b89.js"></script>
 </head>
@@ -46,7 +46,7 @@
               </ul>
 
                 <% if (user) {%>
-                  <a style="font-weight: 600;font-size: 19px;margin-right: 10px;" class="text-warning" href="/profile"><%= user.name%></a>
+                  <a style="font-weight: 600;font-size: 19px;margin-right: 10px;" class="text-warning" href="/logout">تسجيل خروج</a>
                 <% }else{%>
                   <a class="btn btn-outline-warning my-2 my-sm-0" href="/auth">تسجيل دخول / إنشاء حساب</a>
                 <% }%>

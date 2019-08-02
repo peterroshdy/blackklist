@@ -75,7 +75,7 @@ router.post('/login',
   });
 
 /* Logout */
-router.get("/user/logout", (req, res) => {
+router.get("/logout", (req, res) => {
     req.logout();
     req.flash("success_msg",  "تم تسجيل الخروج بنجاح");
     res.redirect('/auth');

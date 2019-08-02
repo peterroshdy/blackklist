@@ -12,44 +12,40 @@
               
               
               <table class="table table-borderless" style="background-color: #000;direction: rtl;">
-                <thead>
-                    <tr>
-                    
-                    <th scope="col">أسم المالك</th>
-                    <th scope="col">ماركة الهاتف</th>
-                    <th scope="col">رقم موديل الهاتف</th>
-                    <th scope="col">رقم IMEI</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <% if (phones){ %>
-                        <% phones.forEach(phone => { %>
+                    <thead>
                         <tr>
-                            
-                            <td><%= phone.owner_name %></td>
-                            <td><%= phone.brand %></td>
-                            <td><%= phone.model_number %></td>
-                            <%if (phone.imei_number) { %>
-                                <td><%= phone.imei_number %></td>
-                            <%}else{%>
-                                <td>غير معروف</td>
-                            <% } %>
+                        <th scope="col">الرقم التسلسلي</th>
+                        
+                        <th scope="col">ماركة الهاتف</th>
+                        
+                        <th scope="col">رقم IMEI</th>
+                        <th scope="col">تاريخ الأضافة</th>
                         </tr>
-                        <% }); %>
-                <% }else{ %>
-                    <p>لا يوجد أي هواتف</p>
-                <% } %>
-                </tbody>
-                </table>
-                <form class="text-right" action="/results_filter" method="GET">
-                <select class="results_filter">
-                    <option>المضاف حديثًا منذ يوم واحد</option>
-                    <option>المضاف منذ أسبوع واحد</option>
-                    <option>المضاف منذ شهر واحد</option>
-                    <option>المضاف منذ 6 أشهر</option>
-                </select>
-                <span> : فلترة النتائج </span>
-              </form>
+                    </thead>
+                    <tbody>
+                    <% if (phones){ %>
+                            <% phones.forEach(phone => { %>
+                            
+                                <tr>
+                                    <td><a href="phone/<%= phone.id%>"><%= phone.id%></a></td>
+                                    
+                                    <td><%= phone.brand %></td>
+                                    
+                                    <%if (phone.imei_number) { %>
+                                        <td><%= phone.imei_number %></td>
+                                    <%}else{%>
+                                        <td>غير معروف</td>
+                                    <% } %>
+                                    <td><%= moment(phone.created_at).format( 'LLL') %></td>
+                                
+                                </tr>
+                            
+                            <% }); %>
+                    <% }else{ %>
+                        <p>لا يوجد أي هواتف</p>
+                    <% } %>
+                    </tbody>
+                    </table>
           </div>
       </div>
   </div>

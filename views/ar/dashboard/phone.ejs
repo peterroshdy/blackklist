@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+
+
+<section class="new_startup_banner_area">
+    <div class="container">
+    
+        <div class="row text-right">
+            <div class="col-lg-12">
+                <h5>عرض معلومات عن هاتف : <%=phone.brand%></h5>
+                <br><br>
+                <form class="primary_form" action="/add_new_phone" method="POST">
+                    <label for="">الرقم التسلسلي</label>
+                    <p><%=phone.id%></p>
+                    <br><br>
+                    <label for="">أسم المالك</label>
+                    <p><%=phone.owner_name%></p>
+                    <br><br>
+                    <label for="">رقم التواصل</label>
+                    <% if(typeof phone.contact_number != 'undefined') {%>
+                        <p><%=phone.contact_number%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">ماركة الهاتف</label>
+                    <% if(typeof phone.brand != 'undefined') {%>
+                        <p><%=phone.brand%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">رقم الموديل الهاتف</label>
+                    <% if(typeof phone.model_number != 'undefined') {%>
+                        <p><%=phone.model_number%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">IMEI رقم</label>
+                    <% if(typeof phone.imei_number != 'undefined') {%>
+                        <p><%=phone.imei_number%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">ملاحظات أخري</label>
+                    <% if(typeof phone.notes != 'undefined') {%>
+                        <p><%=phone.notes%></p>
+                    <%}%>
+                    <br><br>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+        
+<% include ../partials/footer %>

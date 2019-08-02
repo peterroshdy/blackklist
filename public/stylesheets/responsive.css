@@ -2149,6 +2149,12 @@
 }
 
 @media (max-width:768px){
+    .table{
+        font-size: 12px;
+    }
+    .search_box{
+        font-size: 12px;
+    }
     .sec_title br,.prototype_service_info h2 br,.hosting_title h2 br{
         display: none;
     }

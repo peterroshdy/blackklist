@@ -6,20 +6,20 @@
           <div class="col-lg-12">
               
               <form action="/search" method="POST">
-                <button class="search_box_submit_btn" type="submit"><i class="fas fa-search"></i></button>
-                <input class="search_box" placeholder="IMEI أبحث بأستخدام ماركة الهاتف أو موديل الهاتف أو رقم" type="text" name="query" autofocus="off" autocomplete="off" required>
                 
+                <input class="search_box" placeholder="Search by phone brand, model or IMEI number" type="text" name="query" autofocus="off" autocomplete="off" required>
+                <button class="search_box_submit_btn" type="submit"><i class="fas fa-search"></i></button>
               </form>
               
               
-              <table class="table table-borderless" style="background-color: #000;direction: rtl;">
+              <table class="table table-borderless" style="background-color: #000;">
                 <thead>
                     <tr>
-                    <th scope="col">أسم المالك</th>
-                    <th scope="col">ماركة الهاتف</th>
-                    <th scope="col">رقم موديل الهاتف</th>
-                    <th scope="col">رقم IMEI</th>
-                    <th scope="col">تاريخ الأضافة</th>
+                    <th scope="col">Owner's name</th>
+                    <th scope="col">Phone brand</th>
+                    <th scope="col">Model number</th>
+                    <th scope="col">IMEI number</th>
+                    <th scope="col">Added date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@
                             <%if (phone.imei_number) { %>
                                 <td><%= phone.imei_number %></td>
                             <%}else{%>
-                                <td>غير معروف</td>
+                                <td>Unknown</td>
                             <% } %>
                             <td><%= moment(phone.created_at).format( 'LLL') %></td>
                         </tr>
