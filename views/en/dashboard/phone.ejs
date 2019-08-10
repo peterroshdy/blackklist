@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+
+
+<section class="new_startup_banner_area">
+    <div class="container">
+    
+        <div class="row text-right">
+            <div class="col-lg-12">
+                <h5>Info about : <%=phone.brand%></h5>
+                <br><br>
+                <form class="primary_form" action="/add_new_phone" method="POST">
+                    <label for="">ID number</label>
+                    <p><%=phone.id%></p>
+                    <br><br>
+                    <label for="">Owner's name</label>
+                    <p><%=phone.owner_name%></p>
+                    <br><br>
+                    <label for="">Contact number</label>
+                    <% if(typeof phone.contact_number != 'undefined') {%>
+                        <p><%=phone.contact_number%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">Brand</label>
+                    <% if(typeof phone.brand != 'undefined') {%>
+                        <p><%=phone.brand%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">Model number</label>
+                    <% if(typeof phone.model_number != 'undefined') {%>
+                        <p><%=phone.model_number%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">IMEI number</label>
+                    <% if(typeof phone.imei_number != 'undefined') {%>
+                        <p><%=phone.imei_number%></p>
+                    <%}%>
+                    <br><br>
+                    <label for="">Other notes ?</label>
+                    <% if(typeof phone.notes != 'undefined') {%>
+                        <p><%=phone.notes%></p>
+                    <%}%>
+                    <br><br>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+        
+<% include ../partials/footer %>
