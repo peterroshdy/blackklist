@@ -36,22 +36,16 @@
                                 <td>Unknown</td>
                             <% } %>
                             <td><%= moment(phone.created_at).format( 'LLL') %></td>
+                            <%if (phone.user_id == user.id) {%>
+                                    <td><a href="remove/<%= phone.id%>">Remove</a></td>
+                                <% } %>
                         </tr>
                         <% }); %>
                 <% }else{ %>
-                    <p>لا يوجد أي هواتف</p>
+                    <p>No phones</p>
                 <% } %>
                 </tbody>
                 </table>
-                <form class="text-right" action="/results_filter" method="GET">
-                <select class="results_filter">
-                    <option>المضاف حديثًا منذ يوم واحد</option>
-                    <option>المضاف منذ أسبوع واحد</option>
-                    <option>المضاف منذ شهر واحد</option>
-                    <option>المضاف منذ 6 أشهر</option>
-                </select>
-                <span> : فلترة النتائج </span>
-              </form>
           </div>
       </div>
   </div>
