@@ -48,10 +48,10 @@ moment().format();
 
 // Global function to check language
 checkLang = (req, res, view, data) => {
-  if(req.cookies.lang == 'en'){
-    res.render(`en/${view}`, data);
-  }else{
+  if(req.cookies.lang == 'ar'){
     res.render(`ar/${view}`, data);
+  }else{
+    res.render(`en/${view}`, data);
   }
 }
 
