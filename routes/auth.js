@@ -33,7 +33,8 @@ router.post("/signup", (req, res) =>{
     }
 
     if(bad_msgs.length > 0){
-        res.render("auth/auth", {bad_msgs, name, reg_email: email});
+        checkLang(req, res, 'auth/auth', {bad_msgs, name, reg_email: email});
+        //res.render("auth/auth", {bad_msgs, name, reg_email: email});
     }else{
         User.findOne({email: email}).then(user => {
             if(user){
