@@ -17,19 +17,19 @@ router.post("/signup", (req, res) =>{
     let good_msgs = []
 
     if(!name || !email || !password || !password2){
-        bad_msgs.push({msg: "يجب عدم ترك أي حقول فارغة"});
+        bad_msgs.push({msg: "You can't leave any fields blank"});
     }
 
     if(name.length > 100){
-        bad_msgs.push({msg: "يجب أن تكون عدد أحرف الأسم أقل من 100 حرف"});
+        bad_msgs.push({msg: "Name characters can't be more than 100 characters"});
     }
 
     if (password !== password2) {
-        bad_msgs.push({msg:"كلمات المرور غير متطابقة"});
+        bad_msgs.push({msg:"Passwords are not the same! Try again"});
     }
 
     if (password.length < 6) {
-        bad_msgs.push({msg:"يجب أن تكون كلمة المرور 6 أحرف علي الأقل"});
+        bad_msgs.push({msg:"Password should be at least 6 characters"});
     }
 
     if(bad_msgs.length > 0){
@@ -37,7 +37,7 @@ router.post("/signup", (req, res) =>{
     }else{
         User.findOne({email: email}).then(user => {
             if(user){
-                bad_msgs.push({msg: "البريد الإلكتروني موجود مسبقًا"})
+                bad_msgs.push({msg: "Email already in use !"})
                 res.render("auth/auth", {bad_msgs, name, reg_email: email});
             }else{
                 const nUser = new User({name, email, password});
@@ -46,7 +46,7 @@ router.post("/signup", (req, res) =>{
                         if (err) throw err;
                         nUser.password = hash;
                         nUser.save().then(user => {
-                            req.flash('success_msg', "تم تسجيل الحساب بنجاح، قم بتسجيل الدخول");
+                            req.flash('success_msg', "Account created successfully, Please login to continue");
                             res.redirect('/auth');
                         }).catch(err => console.log(err))
                     });
@@ -77,7 +77,7 @@ router.post('/login',
 /* Logout */
 router.get("/logout", (req, res) => {
     req.logout();
-    req.flash("success_msg",  "تم تسجيل الخروج بنجاح");
+    req.flash("success_msg",  "Logged out successfully");
     res.redirect('/auth');
 });
 
