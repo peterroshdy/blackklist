@@ -39,25 +39,25 @@ router.post('/add_new_phone', checkAuth, (req, res) =>{
 
     // Check if any of the required fields are empty
     if(!owner_name || !contact_number || !brand || !model_number){
-        bad_msgs.push({msg: "يجب عدم ترك أيًا من الحقول التالية فارغ : أسم المالك، رقم التواصل، ماركة الهاتف، رقم الموديل"});
+        bad_msgs.push({msg: "You can't leave any of the fields empty !"});
         checkLang(req, res, 'dashboard/add_new_phone', {bad_msgs, owner_name, contact_number, brand, model_number, imei_number, notes});
     }
 
     // Check if any of the entries got more than a 100 char- 
     if(owner_name.length > 100 || contact_number.length > 100 || brand.length > 100 || model_number.length > 100){
-        bad_msgs.push({msg: "يجب ألا تزيد عدد الأحرف في الحقول التالية عن 100 حرف : أسم المالك، رقم التواصل، ماركة الهاتف، رقم الموديل"});
+        bad_msgs.push({msg: "Characters length in fields should be less than 100 character in Name, Contact number, Brand and Model number"});
         checkLang(req, res, 'dashboard/add_new_phone', {bad_msgs, owner_name, contact_number, brand, model_number, imei_number, notes});
     }
 
     // Check if IMEI number is 15 letters
     if(imei_number && imei_number.length != 15){
-        bad_msgs.push({msg: "مكون من 15 حرف IMEI رقم"});
+        bad_msgs.push({msg: "IMEI number should be 15 character"});
         checkLang(req, res, 'dashboard/add_new_phone', {bad_msgs, owner_name, contact_number, brand, model_number, imei_number, notes});
     }
 
     // Check if notes is not over 500 letters
     if(notes.length > 500){
-        bad_msgs.push({msg: "يجب ألا تزيد الملاحظات عن 500 حرف"});
+        bad_msgs.push({msg: "Notes can't be more than 500 character"});
         checkLang(req, res, 'dashboard/add_new_phone', {bad_msgs, owner_name, contact_number, brand, model_number, imei_number, notes});
     }
 
@@ -77,7 +77,7 @@ router.post('/add_new_phone', checkAuth, (req, res) =>{
 
     phone.save((err) => {
         if(err) throw err;
-        req.flash("success_msg", "تم أضافة الهاتف بنجاح");
+        req.flash("success_msg", "Phone added successfully");
         res.redirect("/dashboard");
     });
 });
