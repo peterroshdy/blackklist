@@ -1315,10 +1315,9 @@
     }
     .navbar-collapse,.menu_four .navbar-collapse{
         max-height: 400px;
-        overflow-y: scroll;
         margin-left: 0px;
         margin-right: 0px;
-        background: #fff;
+        background: #000;
     }
     .menu > .nav-item{
         margin-right: 0;
