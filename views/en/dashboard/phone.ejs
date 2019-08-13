@@ -1,47 +1,47 @@
 <% include ../partials/header %>
 
-
 <section class="new_startup_banner_area">
     <div class="container">
-    
-        <div class="row text-right">
+
+        <div class="row text-left" style="font-size: 20px;">
             <div class="col-lg-12">
-                <h5>Info about : <%=phone.brand%></h5>
+                <h5 style="font-size: 30px;font-weight:900;">Info about phone : <%=phone.brand%></h5>
+                <a href="/dashboard">☇ Go back</a>
                 <br><br>
-                <form class="primary_form" action="/add_new_phone" method="POST">
-                    <label for="">ID number</label>
-                    <p><%=phone.id%></p>
-                    <br><br>
-                    <label for="">Owner's name</label>
-                    <p><%=phone.owner_name%></p>
-                    <br><br>
-                    <label for="">Contact number</label>
-                    <% if(typeof phone.contact_number != 'undefined') {%>
-                        <p><%=phone.contact_number%></p>
-                    <%}%>
-                    <br><br>
-                    <label for="">Brand</label>
+
+                <label for="">ID number : </label>
+                <p><%=phone.id%></p>
+                <br>
+                <label for="">Owner's name : </label>
+                <p><%=phone.owner_name%></p>
+                <br>
+                <label for="">Contact number : </label>
+                <% if(typeof phone.contact_number != 'undefined') {%>
+                <p><%=phone.contact_number%></p>
+                <%}%>
+                    <br>
+                    <label for="">Brand : </label>
                     <% if(typeof phone.brand != 'undefined') {%>
-                        <p><%=phone.brand%></p>
-                    <%}%>
-                    <br><br>
-                    <label for="">Model number</label>
+                <p><%=phone.brand%></p>
+                <%}%>
+                    <br>
+                    <label for="">Model number : </label>
                     <% if(typeof phone.model_number != 'undefined') {%>
-                        <p><%=phone.model_number%></p>
-                    <%}%>
-                    <br><br>
-                    <label for="">IMEI number</label>
-                    <% if(typeof phone.imei_number != 'undefined') {%>
-                        <p><%=phone.imei_number%></p>
-                    <%}%>
-                    <br><br>
-                    <label for="">Other notes ?</label>
-                    <% if(typeof phone.notes != 'undefined') {%>
-                        <p><%=phone.notes%></p>
-                    <%}%>
-                    <br><br>
-                    
-                </form>
+                <p><%=phone.model_number%></p>
+                <%}%>
+                    <br>
+                    <label for="">IMEI number : </label>
+                    <% if(typeof phone.imei_number != 'undefined' || typeof phone.imei_number != '') {%>
+                <p><%=phone.imei_number%></p>
+                <%}else{%>
+                <p>Unknown</p>
+                <% } %>
+                <br>
+                <label for="">Other notes : </label>
+                <% if(typeof phone.notes != 'undefined') {%>
+                <p><%=phone.notes%></p>
+                <%}%>
+                <br><br>
             </div>
         </div>
     </div>

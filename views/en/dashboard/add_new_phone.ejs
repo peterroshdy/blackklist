@@ -1,9 +1,9 @@
 <% include ../partials/header %>
 
-
+<div class="spacer"></div>
 <section class="new_startup_banner_area">
     <div class="container">
-    <% include ../partials/messages %>
+        <% include ../partials/messages %>
         <div class="row text-left">
             <div class="col-lg-12">
                 <h5>Add lost/stolen phone</h5>
@@ -12,10 +12,12 @@
                 <form class="primary_form" action="/add_new_phone" method="POST">
                     <input required value="<%= user.id %>" name="user_id" hidden />
                     <label for="">Owner's name *</label>
-                    <input type="name" value="<%= typeof owner_name != 'undefined' ? owner_name : ''%>" name="owner_name" placeholder="Phone owner name" required>
+                    <input type="name" value="<%= typeof owner_name != 'undefined' ? owner_name : ''%>"
+                        name="owner_name" placeholder="Phone owner name" required>
                     <br><br>
                     <label for="">Contact number*</label>
-                    <input type="text" value="<%= typeof contact_number != 'undefined' ? contact_number : ''%>" name="contact_number" placeholder="Add contact number" required>
+                    <input type="text" value="<%= typeof contact_number != 'undefined' ? contact_number : ''%>"
+                        name="contact_number" placeholder="Add contact number" required>
                     <br><br>
                     <label for="">Brand *</label>
                     <select name="brand" required>
@@ -60,13 +62,16 @@
                     </select>
                     <br><br>
                     <label for="">Model number*</label>
-                    <input type="text" value="<%= typeof model_number != 'undefined' ? model_number : ''%>" name="model_number" placeholder="Add model number" required>
+                    <input type="text" value="<%= typeof model_number != 'undefined' ? model_number : ''%>"
+                        name="model_number" placeholder="Add model number" required>
                     <br><br>
                     <label for="">IMEI number</label>
-                    <input type="text" value="<%= typeof imei_number != 'undefined' ? imei_number : ''%>" name="imei_number" placeholder="IMEI number">
+                    <input type="text" value="<%= typeof imei_number != 'undefined' ? imei_number : ''%>"
+                        name="imei_number" placeholder="IMEI number">
                     <br><br>
                     <label for="">Other notes ?</label>
-                    <textarea placeholder="Do you have other notes to add ?" name="notes"><%= typeof notes != 'undefined' ? notes : ''%></textarea>
+                    <textarea placeholder="Do you have other notes to add ?"
+                        name="notes"><%= typeof notes != 'undefined' ? notes : ''%></textarea>
                     <br><br>
                     <button type="submit" class="btn btn-warning">Add lost phone</button>
                 </form>
@@ -75,5 +80,5 @@
     </div>
 
 </section>
-        
+<div class="spacer"></div>
 <% include ../partials/footer %>

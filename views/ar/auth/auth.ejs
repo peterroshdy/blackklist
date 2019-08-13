@@ -1,31 +1,34 @@
 <% include ../partials/header %>
 
-
+<div class="spacer"></div>
 <section class="new_startup_banner_area">
-  <div class="container">
-       <% include ../partials/messages %>
-        
+    <div class="container">
+        <% include ../partials/messages %>
+
         <div class="row text-right">
             <div class="col-lg-6">
-                    <form class="primary_form" method="POST" action="/signup">
-                        <input type="name" value="<%= typeof name != 'undefined' ? name : ''%>" name="name" placeholder="أسم المستخدم">
-                        <input type="email" value="<%= typeof reg_email != 'undefined' ? reg_email : ''%>" name="email" placeholder="البريد الإلكتروني" required>
-                        <input type="password" name="password" placeholder="تعيين كلمة مرور" required>
-                        <input type="password" name="password2" placeholder="تأكيد كلمة مرور" required>
-                        <button type="submit" class="btn btn-warning">إنشاء حساب</button>
-                    </form>
+                <form class="primary_form" method="POST" action="/signup">
+                    <input type="name" value="<%= typeof name != 'undefined' ? name : ''%>" name="name"
+                        placeholder="أسم المستخدم">
+                    <input type="email" value="<%= typeof reg_email != 'undefined' ? reg_email : ''%>" name="email"
+                        placeholder="البريد الإلكتروني" required>
+                    <input type="password" name="password" placeholder="تعيين كلمة مرور" required>
+                    <input type="password" name="password2" placeholder="تأكيد كلمة مرور" required>
+                    <button type="submit" class="btn btn-warning">إنشاء حساب</button>
+                </form>
             </div>
             <br><br>
             <div class="col-lg-6 col-sm-12">
-                    <form class="primary_form" method="POST" action="/login">
-                        <input type="email" value="<%= typeof email != 'undefined' ? email : ''%>"  name="email" placeholder="البريد الإلكتروني" required>
-                        <input type="password" name="password" placeholder="كلمة مرور" required>
-                        <button type="submit" class="btn btn-warning">تسجيل دخول</button>
-                        <a href="/forgot_password">هل نسيت كلمة المرور ؟</a>
-                    </form>
+                <form class="primary_form" method="POST" action="/login">
+                    <input type="email" value="<%= typeof email != 'undefined' ? email : ''%>" name="email"
+                        placeholder="البريد الإلكتروني" required>
+                    <input type="password" name="password" placeholder="كلمة مرور" required>
+                    <button type="submit" class="btn btn-warning">تسجيل دخول</button>
+
+                </form>
             </div>
         </div>
-  </div>
+    </div>
 </section>
-        
+<div class="spacer"></div>
 <% include ../partials/footer %>

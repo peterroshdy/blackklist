@@ -1,7 +1,8 @@
 <% include ../partials/header %>
+<div class="spacer"></div>
 <section class="new_startup_banner_area">
     <div class="container">
-    <% include ../partials/messages %>
+        <% include ../partials/messages %>
         <div class="row text-right">
             <div class="col-lg-12">
                 <h5>أضف هاتف مفقود أو مسروق</h5>
@@ -10,10 +11,12 @@
                 <form class="primary_form" action="/add_new_phone" method="POST">
                     <input required value="<%= user.id %>" name="user_id" hidden />
                     <label for="">أسم المالك *</label>
-                    <input type="name" value="<%= typeof owner_name != 'undefined' ? owner_name : ''%>" name="owner_name" placeholder="أسم مالك الهاتف المفقود" required>
+                    <input type="name" value="<%= typeof owner_name != 'undefined' ? owner_name : ''%>"
+                        name="owner_name" placeholder="أسم مالك الهاتف المفقود" required>
                     <br><br>
                     <label for="">رقم هاتف للتواصل*</label>
-                    <input type="text" value="<%= typeof contact_number != 'undefined' ? contact_number : ''%>" name="contact_number" placeholder="أضف رقم هاتف للتواصل في حالة العثور علية" required>
+                    <input type="text" value="<%= typeof contact_number != 'undefined' ? contact_number : ''%>"
+                        name="contact_number" placeholder="أضف رقم هاتف للتواصل في حالة العثور علية" required>
                     <br><br>
                     <label for="">نوع الهاتف*</label>
                     <select name="brand" required>
@@ -58,13 +61,17 @@
                     </select>
                     <br><br>
                     <label for="">رقم موديل الهاتف المفقود*</label>
-                    <input type="text" value="<%= typeof model_number != 'undefined' ? model_number : ''%>" name="model_number" placeholder="أضف رقم الموديل الخاص بالهاتف" required>
+                    <input type="text" value="<%= typeof model_number != 'undefined' ? model_number : ''%>"
+                        name="model_number" placeholder="أضف رقم الموديل الخاص بالهاتف" required>
                     <br><br>
                     <label for="">IMEI رقم</label>
-                    <input type="text" value="<%= typeof imei_number != 'undefined' ? imei_number : ''%>" name="imei_number" placeholder=" أضف رقم IMEI ">
+                    <input type="text" value="<%= typeof imei_number != 'undefined' ? imei_number : ''%>"
+                        name="imei_number" placeholder=" أضف رقم IMEI ">
                     <br><br>
                     <label for="">ملاحظات أخري ؟</label>
-                    <textarea placeholder="هل تود أضافة ملاحظات أخري عن الهاتف المفقود؟ علامات مميزة؟ متي فقدتة أو كيف ؟" name="notes"><%= typeof notes != 'undefined' ? notes : ''%></textarea>
+                    <textarea
+                        placeholder="هل تود أضافة ملاحظات أخري عن الهاتف المفقود؟ علامات مميزة؟ متي فقدتة أو كيف ؟"
+                        name="notes"><%= typeof notes != 'undefined' ? notes : ''%></textarea>
                     <br><br>
                     <button type="submit" class="btn btn-warning">أضف هاتف مفقود</button>
                 </form>
@@ -73,5 +80,5 @@
     </div>
 
 </section>
-        
+<div class="spacer"></div>
 <% include ../partials/footer %>

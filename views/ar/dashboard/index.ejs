@@ -1,60 +1,35 @@
 <% include ../partials/header %>
 
 <section class="new_startup_banner_area">
-  <div class="container">
-      <div class="row text-center">
-          <div class="col-lg-12 col-xs-12 col-sm-12">
-              
-              <form action="/search" method="POST">
-                <button class="search_box_submit_btn" type="submit"><i class="fas fa-search"></i></button>
-                <input class="search_box" placeholder="IMEI أبحث بأستخدام ماركة الهاتف أو موديل الهاتف أو رقم" type="text" name="query" autofocus="off" autocomplete="off" required>
-                
-              </form>
-              
-              <p class="text-right">المضاف حديثًا</p>
-              <table class="table table-borderless" style="background-color: #000;direction: rtl;">
-                <thead>
-                    <tr>
-                    <th scope="col">الرقم التسلسلي</th>
-                    
-                    <th scope="col">ماركة الهاتف</th>
-                    
-                    <th scope="col">رقم IMEI</th>
-                    <th scope="col">تاريخ الأضافة</th>
-                    
-                    </tr>
-                </thead>
-                <tbody>
-                <% if (phones){ %>
-                        <% phones.forEach(phone => { %>
-                        
-                            <tr>
-                                <td><a href="phone/<%= phone.id%>"><%= phone.id%></a></td>
-                                
-                                <td><%= phone.brand %></td>
-                                
-                                <%if (phone.imei_number) { %>
-                                    <td><%= phone.imei_number %></td>
-                                <%}else{%>
-                                    <td>غير معروف</td>
-                                <% } %>
-                                <td><%= moment(phone.created_at).format( 'LLL') %></td>
-                                <%if (phone.user_id == user.id) {%>
-                                    <td><a href="remove/<%= phone.id%>">حذف</a></td>
-                                <% } %>
-                            
-                            </tr>
-                        
-                        <% }); %>
-                <% }else{ %>
-                    <p>لا يوجد أي هواتف</p>
-                <% } %>
-                </tbody>
-                </table>
-                
-          </div>
-      </div>
-  </div>
+    <div class="container">
+        <form class="text-center" action="/search" method="POST">
+            <button class="search_box_submit_btn" type="submit"><i class="fas fa-search"></i></button>
+            <input class="search_box" placeholder="... أبحث هنا" type="search" name="query" autofocus="off"
+                autocomplete="off" required>
+        </form>
+        <div class="row text-center">
 
-</section>        
+            <% if (phones){ %>
+            <% phones.forEach(phone => { %>
+            <div class="this_is_phone col-lg-4">
+                <p><b><a href="phone/<%= phone.id%>"><%= phone.id%></a></b></p>
+                <p><%= phone.brand%><b> : ماركة الهاتف</b></p>
+
+                <%if (phone.imei_number) { %>
+                <p><%= phone.imei_number%><b> : IMEI</b></p>
+                <%}else{%>
+                <p> غير معروف : IMEI</p>
+                <% } %>
+                <p><%= moment(phone.created_at).format( 'LLL') %><b> : تاريخ الإضافة</b></p>
+                <p> <%if (phone.user_id == user.id) {%>
+                    <a href="remove/<%= phone.id%>">حذف</a>
+                    <% } %>
+                </p>
+            </div>
+            <% }); %>
+            <% } %>
+        </div>
+
+</section>
+<div class="spacer"></div>
 <% include ../partials/footer %>

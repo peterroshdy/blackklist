@@ -2,55 +2,137 @@
 <html>
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-    <title>Blackk List - بلاك ليست</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/stylesheets/ar/style.css">  
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">      
-    <link rel="stylesheet" href="/stylesheets/general.css">
-    <link rel="stylesheet" href="/stylesheets/responsive.css">
-    <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/496eae3b89.js"></script>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <title>Blackk List - بلاك ليست</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/ar/style.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/general.css">
+  <link rel="stylesheet" href="/stylesheets/responsive.css">
+  <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/496eae3b89.js"></script>
+  <link rel="stylesheet" href="/sal.js/dist/sal.css">
+  <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+  <script>
+    var infScroll = new InfiniteScroll('.elems', {
+      // defaults listed
+
+      path: undefined,
+      // REQUIRED. Determines the URL for the next page
+      // Set to selector string to use the href of the next page's link
+      // path: '.pagination__next'
+      // Or set with {{#}} in place of the page number in the url
+      // path: '/blog/page/{{#}}'
+      // or set with function
+      // path: function() {
+      //   return return '/articles/P' + ( ( this.loadCount + 1 ) * 10 );
+      // }
+
+      append: undefined,
+      // REQUIRED for appending content
+      // Appends selected elements from loaded page to the container
+
+      checkLastPage: true,
+      // Checks if page has path selector element
+      // Set to string if path is not set as selector string:
+      //   checkLastPage: '.pagination__next'
+
+      prefill: false,
+      // Loads and appends pages on intialization until scroll requirement is met.
+
+      responseType: 'document',
+      // Sets the type of response returned by the page request.
+      // Set to 'text' to return flat text for loading JSON.
+
+      outlayer: false,
+      // Integrates Masonry, Isotope or Packery
+      // Appended items will be added to the layout
+
+      scrollThreshold: 400,
+      // Sets the distance between the viewport to scroll area
+      // for scrollThreshold event to be triggered.
+
+      elementScroll: false,
+      // Sets scroller to an element for overflow element scrolling
+
+      loadOnScroll: true,
+      // Loads next page when scroll crosses over scrollThreshold
+
+      history: 'replace',
+      // Changes the browser history and URL.
+      // Set to 'push' to use history.pushState()
+      //    to create new history entries for each page change.
+
+      historyTitle: true,
+      // Updates the window title. Requires history enabled.
+
+      hideNav: undefined,
+      // Hides navigation element
+
+      status: undefined,
+      // Displays status elements indicating state of page loading:
+      // .infinite-scroll-request, .infinite-scroll-load, .infinite-scroll-error
+      // status: '.page-load-status'
+
+      button: undefined,
+      // Enables a button to load pages on click
+      // button: '.load-next-button'
+
+      onInit: undefined,
+      // called on initialization
+      // useful for binding events on init
+      // onInit: function() {
+      //   this.on( 'append', function() {...})
+      // }
+
+      debug: false,
+      // Logs events and state changes to the console.
+    })
+  </script>
 </head>
 
 <body>
-    
-    <div class="body_wrapper">
-        <nav style="direction: rtl;background-color: black;padding: 22px" class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="/">بلاك ليست</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    اللغة
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/lang/ar">العربية</a>
-                    <a class="dropdown-item" href="/lang/en">English</a>
-                    
-                  </div>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/dashboard">البحث في الهواتف المفقودة</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/add_new_phone">  أضف هاتف مفقود </a>
-                </li>
-              </ul>
 
-                <% if (user) {%>
-                  <a style="font-weight: 600;font-size: 19px;margin-right: 10px;" class="text-warning" href="/logout">تسجيل خروج</a>
-                <% }else{%>
-                  <a class="btn btn-outline-warning my-2 my-sm-0" href="/auth">تسجيل دخول / إنشاء حساب</a>
-                <% }%>
-                
-              
+  <div class="body_wrapper">
+    <nav style="direction: rtl;background-color: black;padding: 22px" class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="/">بلاك ليست</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              اللغة
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/lang/ar">العربية</a>
+              <a class="dropdown-item" href="/lang/en">English</a>
+
             </div>
-          </nav>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/dashboard">البحث في الهواتف المفقودة</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/add_new_phone"> أضف هاتف مفقود </a>
+          </li>
+        </ul>
+
+        <% if (user) {%>
+        <a style="font-weight: 600;font-size: 19px;margin-right: 10px;" class="text-warning" href="/logout">تسجيل
+          خروج</a>
+        <% }else{%>
+        <a class="btn btn-outline-warning my-2 my-sm-0" href="/auth">تسجيل دخول / إنشاء حساب</a>
+        <% }%>
+
+
+      </div>
+    </nav>
